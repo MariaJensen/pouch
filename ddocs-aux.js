@@ -4,7 +4,6 @@ export default {
     putDesignDoc: async function (ddocName, options) {
         
         /** * parameters: 
-                * db        PouchDB database object
                 * ddocName  The views will live in doc with _id: '_design/' + ddocName
                 * options   Object with a 'views' field
                     * views     An array of objects 
@@ -12,7 +11,7 @@ export default {
                                 * mapFunction           function
                                 [ * reduceFunction ]    function    
             * effects: 
-                *   If no doc with _id: '_design/' + <ddocName> exists in <db>, it will be created 
+                *   If no doc with _id: '_design/' + <ddocName> exists in db, it will be created 
                     and populated with a 'views' object containing the views of <views>
                 *   If the doc exists but has no 'views' object, this object will be created containing the 
                     views of <views> and merged into the doc
@@ -24,6 +23,7 @@ export default {
                     *   Existing views that are not in <views> will be kept as they are
             * returns: 
                 *   Info on how it all went
+                    If db returns an error, this function will not throw but rather return the error object. 
         */
 
         const ddocId = '_design/' + ddocName;
@@ -93,9 +93,9 @@ export default {
     getAllDesignDocs: async function () {
         
         /** * parameters: 
-                *   db  PouchDB database object
+                void
             * returns: 
-                *   An array of all docs in <db> whose value of the '_id' key starts with '_design/' 
+                *   An array of all docs in db whose value of the '_id' key starts with '_design/' 
             */
 
         try {
