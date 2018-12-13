@@ -31,6 +31,7 @@ For the map function this means that its function body must contain no reference
 
 For the reduce function this means that its function body must contain no reference to anything outside of it except for the parameters of the function. 
 
+(todo: Is it actually possible to pass parameters to the view when quering it?)
 (todo: examples)
 
 The design doc is saved to the database like any other document, and after it is saved, the views in it can be used to query the database. 
