@@ -48,11 +48,11 @@ By providing an `options` object you can decide weather a possible reduce functi
 Furthermore you can format the output of the query in different ways by setting relevant keys. (TODO)
 
 ### Map functions 
-A **map function** takes a doc from the database as its argument and returns an (possibly empty) array of objects.  
+A **map function** takes a doc from the database as its argument and returns a (possibly empty) array of objects.  
 
 **`emit`** is a function that can be called from inside the map function body. It takes zero, one or two arguments. 
 
-Each time the `emit` function is called inside the map function body, another element is added to the array that will be returned. The element is an object with three properties: 
+Each time the `emit` function is called inside the map function body, another element is added to the array that will be returned. The element holds an object with three properties: 
 * `id` will have the `doc._id` as its value.
 * `key` will have the first argument passed to `emit` as its value. Or `null` in case `emit` was called with zero arguments.
 * `value` will have the second argument passed to `emit` as its value. Or `null` in case `emit` was called with one argument.
